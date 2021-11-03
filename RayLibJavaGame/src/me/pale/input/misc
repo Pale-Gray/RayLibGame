@@ -1,0 +1,61 @@
+public static void calcTopDown() {
+		
+		playerPos.x(px);
+        playerPos.y(py);
+        
+        if (IsKeyDown(KEY_W)) {
+        	py -= 2 * speed;
+        }
+        if (IsKeyDown(KEY_S)) {
+        	py += 2 * speed;
+        }
+        if (IsKeyDown(KEY_A)) {
+        	px -= 2 * speed;
+        }
+        if (IsKeyDown(KEY_D)) {
+        	px += 2 * speed;
+        }
+        
+        if (IsKeyDown(KEY_LEFT_SHIFT)) {
+        	
+        	speed = 1.75f;
+        	
+        } else {
+        	
+        	speed = 1.0f;
+        	
+        }
+		
+	}
+	
+	public static void calcGravity() {
+		
+		ay = 1*speed;
+    	vy += ay;
+    	
+    	py += (vy);
+    	
+    	if (vy > my * speed) {
+    		
+    		vy = my * speed;
+    		
+    	}
+    	
+    	if (IsKeyDown(KEY_SPACE) && vy > 5 * speed) {
+    		
+    		vy = -25 * speed;
+    		
+    	}
+    	
+    	if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
+    		
+    		// System.out.println("mouse right clicked.")
+    		speed = 0.1f;
+    		
+    	} else {
+    		
+    		speed = 1.0f;
+    		
+    	}
+		
+	}
